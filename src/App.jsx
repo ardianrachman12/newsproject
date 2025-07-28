@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/layout/Header";
+import HomePage from "./views/HomePage";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      {/* Menggunakan kelas-kelas Tailwind untuk styling dasar body/container */}
+      <div className="min-h-screen flex flex-col">
+        <Header /> {/* Komponen Header kita */}
+        <main className="flex-grow container mx-auto p-4">
+          {" "}
+          {/* Menggunakan Tailwind untuk padding dan centering */}
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            {/* Rute-rute lain akan ditambahkan di sini nantinya */}
+            {/* Contoh: <Route path="/article/:id" element={<ArticleDetailPage />} /> */}
+            {/* Contoh: <Route path="/category/:name" element={<CategoryPage />} /> */}
+          </Routes>
+        </main>
+        {/* Jika Anda punya komponen Footer, bisa diletakkan di sini */}
+        {/* <Footer /> */}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
