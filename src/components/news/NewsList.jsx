@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getTopHeadlines } from "../../services/NewsApi";
+import { getTopHeadlines } from "../../services/NewsApi2";
 import ArticleCard from "./ArticleCard";
 import LoadingSpinner from "../common/LoadingSpinner";
 import ErrorDisplay from "../common/ErrorDisplay";
